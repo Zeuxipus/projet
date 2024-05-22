@@ -1,331 +1,171 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Note-App!{% endblock %}
+{% block title %}Too-Doo{% endblock %}
 
 {% block body %}
 <style>
-   
-   .cadre-todo
-   {
-     position: absolute;
-     left: -50px;
-   }
-   .todo-container
-   {
-    position: absolute;
-    width: 430px;
-    height: 636px;
-    left: 864px;
-    top: 162px;
-
-   }
-   .background
-   {
-    width: 430px;
-    height: 202px;
-    left: 864px;
-    top: 162px;
-
+  body {
+    background-color: #EEEEEE;
+  }
+  .cadre-todo {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+  .todo-container {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+  }
+  .background {
+    width: 100%;
+    height: auto;
     border-radius: 10px 10px 0px 0px;
-   }
-
-   .day
-   {
+  }
+  .day, .date {
+    font-family: 'Russo One', sans-serif;
+    color: #FFFFFF;
+  }
+  .day {
     position: absolute;
-    width: 60px;
-    height: 22px;
-    left: 334px;
-    top: 114px;
-
-    font-family: 'Russo One';
-    font-style: normal;
-    font-weight: 400;
+    right: 10px;
+    top: 10px;
     font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
-
-    color: #FFFFFF;
-
-   }
-
-   .date
-   {
+  }
+  .date {
     position: absolute;
-    width: 192px;
-    height: 58px;
-    left: 210px;
-    top: 131px;
-    font-family: 'Russo One';
-    font-style: normal;
-    font-weight: 400;
+    right: 10px;
+    top: 40px;
     font-size: 48px;
-    line-height: 58px;
-    /* identical to box height */
-
-    color: #FFFFFF;
-
-   }
-   .note-cadre
-   {
+  }
+  .note-cadre {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    padding: 0px;
-    gap: 10px;
-
-    position: absolute;
-    width: 373px;
-    height: 49px;
-    left: 893px;
-    top: 428px;
-
-   }
-
-   .note-text-cadre-email 
-   {
+    margin-top: 20px;
+  }
+  .note-text-cadre {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 10px 12px;
     gap: 10px;
-    width: 267px;
-    height: 27px;
-    background: cornflowerblue;
+    width: 100%;
+    max-width: 267px;
+    margin: 10px 0;
+    background: #D9D9D9;
     border-radius: 27px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    position: absolute;
-    top: 0px;
-    left:48px
-   }
-
-    .note-text-cadre-password
-   {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 12px;
-    gap: 10px;
-    width: 267px;
-    height: 27px;
-    background: cornflowerblue;
-    border-radius: 27px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    position: absolute;
-    top: 75px;
-    left:48px;
-   }
-   .note-text 
-   {
-    width: 275px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
+    position: relative;
+  }
+  .note-text-cadre label {
+    color: #E76F51;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .note-text {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 19px;
     color: black;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    position: absolute;
     border: none;
     background: none;
     outline: none;
-
-   }
-   .date-select
-   {
-       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      gap: 11px;
-      isolation: isolate;
-      width: 50px;
-      height: 46px;
-      border-radius: 5px;
-      flex: none;
-        flex-grow: 0;
-      flex-grow: 0;
-      order: 1;
-      align-self: stretch;
-      flex-grow: 0;
-      position: absolute;
-      left: 304px;
-      top: 2px;
-      background: url('https://api.iconify.design/uil/angle-down.svg') no-repeat center center / contain;
-        background-color: rgba(0, 0, 0, 0);
-      background-color: rgba(0, 0, 0, 0);
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-color: #20EEB0;
-      border: 1px solid;
-
-
-   }
-   .date-select-choice
-   {
-       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      gap: 11px;
-      isolation: isolate;
-      width: 50px;
-      height: 46px;
-      border-radius: 5px;
-      flex: none;
-        flex-grow: 0;
-      flex-grow: 0;
-      order: 1;
-      align-self: stretch;
-      flex-grow: 0;
-      position: absolute;
-      left: 304px;
-      top: 2px;
-        background-color: rgba(0, 0, 0, 0);
-      background-color: rgba(0, 0, 0, 0);
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-color: #20EEB0;
-      border: 1px solid;
-
-
-   }
-   .btn
-   {
+    padding: 0;
+  }
+  .btn-warning, .btn-success {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-radius: 26px;
+    cursor: pointer;
     padding: 10px;
-    gap: 11px;
-    isolation: isolate;
     width: 114px;
     height: 46px;
-    background: #20EEB0;
-    border-radius: 26px;
-    flex: none;
-    flex-grow: 0;
-    flex-grow: 0;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-    position: absolute;
-    left: 141px;
-    top: 165px;
-    border: 1px solid;
-   }
-    
-   .btn-icon
-   {
+    margin: 10px auto;
+    border: none;
+  }
+  .btn-warning {
+    background: #E76F51;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+  }
+  .btn-success {
+    background: #2A9D8F;
+    color: #FFFFFF;
+  }
+  .create-account {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 4px 15px;
-    gap: 10px;
-
-    width: 46px;
-    height: 24px;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
-   }
-   .create-account
-   {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    gap: 11px;
-    isolation: isolate;
-    width: 114px;
-    height: 0px;
-    color: darkslateblue;
-    border-radius: 0px;
-    flex: none;
-    flex-grow: 0;
-    flex-grow: 0;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-    position: absolute;
-    left: 206px;
-    top: 231px;
-   }
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    color: #E76F51;
+    margin: 10px 0;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  @media (max-width: 768px) {
+    .todo-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .note-text-cadre {
+      width: 90%;
+    }
+    .btn-warning, .btn-success, .create-account {
+      width: 80%;
+    }
+  }
 </style>
 
-
-   
-  <div class="cadre-todo">
-       
-    <div class="todo-container">
-      <img src="{{asset('/image/background.png')}}" alt="background" class="background">
-    </div>
-
-      <div class="note-cadre">
-
-        <form action="{{path('app_login')}}" method="post">
-
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-              {% if error %}
-                  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-              {% endif %}
-
-              <div class="note-text-cadre-email">
-                <label for="email" class="label-email" style="position: absolute;top: -23px;left: -15px;">
-                  Email: </label>
-                <input type="email" value="{{ last_username }}" name="email"  class="note-text" autocomplete="email" required autofocus>
-
-              </div>
-
-               <div class="note-text-cadre-password">
-
-                <label for="password" class="label-password" style="position: absolute;top: -24px; left: -15px;">
-                  Mot de passe: </label>
-
-                  <input type="password" name="password"  class="note-text" autocomplete="current-password" required>
-
-
-              </div>
-              
-               
-                <button type="submit" class="btn">
-                Se connecter
-                 </button>
-
-                 <a href="{{path('show_register')}}" class="create-account">
-                  <p>Créer un compte</p>
-                 </a>
-
-                
-
-                 
-              
-            
-  
-          </form>
-      </div>
-
-     
-
+<div class="cadre-todo">
+  <div class="todo-container">
+    <img src="{{ asset('/image/3-removebg-preview.png') }}" alt="background" class="background">
+    <h1>Too-Doo List</h1>
+    <p>Pour être sûûûûr de ne rien oublier</p>
   </div>
 
+  <div class="note-cadre">
+    <form action="{{ path('app_login') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
+      {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+      {% endif %}
 
+      <div class="note-text-cadre">
+        <label for="email" class="label-email">Adresse Email</label>
+        <input type="email" value="{{ last_username }}" name="email" class="note-text" autocomplete="email" required autofocus>
+      </div>
+
+      <div class="note-text-cadre">
+        <label for="password" class="label-password">Mot de passe</label>
+        <input type="password" name="password" class="note-text" autocomplete="current-password" required>
+      </div>
+      
+      <button type="submit" class="btn-warning">C'est partiii !</button>
+
+      <p>L'inscription c'est juste en dessous !</p>
+      <div class="create-account">
+        <a href="{{ path('show_register') }}">
+          <button type="button" class="btn-success">Go Go Go !</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

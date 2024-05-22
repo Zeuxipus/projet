@@ -1,44 +1,48 @@
 <style>
 
-.profil
-    {
-    position: absolute;
-    width: 1000px;
-    height: 116px;
-    left: 975px;
-    top: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 116px;
-    color: coral;
-    }
-
-.avatar
-{
-    position: absolute;
-    width: 600px;
-    height: 116px;
-    left: 900px;
-    top: 2px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 116px;
-    transform: scale(0.1);
+.container-profil {    
+    width: 100rem;
 }
+
+img {
+    width: 200px;
+    heigth: 120px;
+}
+
+.btn-success {
+    background-color: #E76F51;
+    width: 150px;
+    margin-top: 60px;
+    position: absolute;
+    right: 10px;
+}
+
+.profil {
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    left: 50px;
+    font-size: 30px;
+}
+
 
 </style>
 
-<div class="container-profil">    
-        <span class="profil">
-         Quoi de neuf {{ app.user.nom }} ?
-        </span>
 
-        <a href="{{path('app_logout')}}" class="avatar">               
-            {# <img src="{{asset('/image/profil.png')}}" alt="profil" > #}
-            <input type="button" value="deconnexion">
-        </a>            
+<div class="container-profil">
+<div class="image">
+    <img src="image/2-removebg-preview.png" alt="logo">
 </div>
+
+    <a href="{{path('app_logout')}}">               
+    <button type="button" class="btn btn-success">Déconnexion</button>
+    </a>     
+
+</div>
+<p class="profil">
+         Quoi de beau {{ app.user.nom }} ?
+        </p>
+
+        
+        
+     
