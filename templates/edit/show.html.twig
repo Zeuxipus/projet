@@ -15,37 +15,47 @@
 
    
   <div class="cadre-todo">
-       
+
      {% include "/components/header.html.twig" with{'jourDate':jourDate, 'heure':heure} %}
-     
+
       <div class="note-cadre">
 
-        <form action="{{path('edit_task', {'id':task.id})}}" method="post">
+        <form action="{{path('app_home', {'id':task.id})}}" method="post">
               <div class="note-text-cadre">
                 <input type="text" name="titre" value="{{task.titre}}" class="note-text" id="titre">
-              </div>
-                         
+              </div>         
+
                 <button type="submit" class="btn">
-                    <img src="{{asset('/image/ok.png')}}" alt="icon" >
+                    <img src="{{asset('/image/ok.png')}}" alt="icon" style="position: absolute;">
                  </button>
 
                  <select name="jourDate" class="date-select-choice" id="selectChoice" onclick="onSelect()">
-                    
+
                      <option>{{task.jourDate}}</option>
-                    
+
                     {% for day in array_day %}
-                          <option value="{{day.first}}">{{day.first}}</option>
+                        <option value="{{day.first}}">{{day.first}}</option>
                         <option value="{{day.second}}">{{day.second}}</option>
                         <option value="{{day.third}}">{{day.third}}</option>
                         <option value="{{day.fourth}}">{{day.fourth}}</option>
-                        <option value="{{day.fifth}}">{{day.fifth}}</option>
-                   
-                    {% endfor %}
-                 </select>  
+                        <option value="{{day.fifth}}">{{day.fifth}}</option>                   
+                    {% endfor %}                    
+
+                 </select>                
+
+
+
           </form>
       </div>
+
+
+
+
   </div>
+
 </div>
+
+<script>
 
 <script>
  function onSelect()

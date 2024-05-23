@@ -74,7 +74,7 @@ class HomeController extends AbstractController
     }
 
     // Lecture de la task
-    #[Route('/showTask/{id}', name: 'show_task')]
+    #[Route('/editTask/{id}', name: 'editTask')]
     public function showTask($id): Response
     {
        return  $this->forward('App\Controller\HomeController::index',
@@ -82,18 +82,17 @@ class HomeController extends AbstractController
            );
     }
 
-    // Edition de la task
-    #[Route('/editTask/{id}', name: 'edit_task', methods:'POST')]
-    public function editTask($id,Request $request): Response
-    {
-       $titre=$request->request->get('titre');
-       $jourDate=$request->request->get('jourDate');
-       $task=$this->task->find($id);
-       $task->setTitre($titre)
-            ->setJourDate($jourDate);
-       $this->manager->flush();
-       return $this->redirectToRoute('app_home');    
-    }
+    // #[Route('/editTask/{id}', name: 'edit_task', methods:'POST')]
+    // public function editTask($id,Request $request): Response
+    // {
+    //    $titre=$request->request->get('titre');
+    //    $jourDate=$request->request->get('jourDate');
+    //    $task=$this->task->find($id);
+    //    $task->setTitre($titre)
+    //         ->setJourDate($jourDate);
+    //    $this->manager->flush();
+    //    return $this->redirectToRoute('app_home');    
+    // }
 
     // Effacer la task
     #[Route('/deleteTask/{id}', name: 'delete_task')]

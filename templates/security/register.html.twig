@@ -135,6 +135,7 @@
 
   <div class="note-cadre">
     <form action="{{ path('app_register') }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
       {% if error is defined %}
         <p style="position: absolute;left: 150px; top: -121px;color: red;">{{ error }}</p>
       {% endif %}
