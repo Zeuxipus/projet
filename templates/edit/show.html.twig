@@ -14,22 +14,22 @@
 </style>
 
    
-  <div class="cadretodo">
+  <div class="cadre-todo">
        
-     {# {% include "/components/header.html.twig" with{'jourDate':jourDate, 'heure':heure} %} #}
+     {% include "/components/header.html.twig" with{'jourDate':jourDate, 'heure':heure} %}
      
-      <div class="notecadre">
+      <div class="note-cadre">
 
         <form action="{{path('edit_task', {'id':task.id})}}" method="post">
-              <div class="cadre">
-                <input type="text" name="titre" value="{{task.titre}}" class="note" id="titre">
+              <div class="note-text-cadre">
+                <input type="text" name="titre" value="{{task.titre}}" class="note-text" id="titre">
               </div>
                          
                 <button type="submit" class="btn">
                     <img src="{{asset('/image/ok.png')}}" alt="icon" >
                  </button>
 
-                 <select name="jourDate" class="date" id="selectChoice" onclick="onSelect()">
+                 <select name="jourDate" class="date-select-choice" id="selectChoice" onclick="onSelect()">
                     
                      <option>{{task.jourDate}}</option>
                     
@@ -48,33 +48,17 @@
 </div>
 
 <script>
-
-
-
  function onSelect()
  {
-   var select= document.getElementById('selectChoice').value  
-
-
+   var select= document.getElementById('selectChoice').value
    if(select.length !==0)
    {
-      document.getElementById('selectChoice').className="date"
-
-   }
-   
+      document.getElementById('selectChoice').className="date-select-choice"
+   }   
    else
    {
       document.getElementById('selectChoice').className="date-select"
-
-   }
-
-
-   
-   
- }
-
- 
-
-  
+   } 
+ }  
 </script>
 {% endblock %}

@@ -1,48 +1,50 @@
 <style>
+.container-profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.container-profil {    
-    width: 100rem;
+.bannière {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; 
 }
 
 img {
     width: 200px;
-    heigth: 120px;
+    height: 150px;
 }
 
 .btn-success {
-    background-color: #E76F51;
+    margin-right: 40px;
+    background-color: #2A9D8F;
     width: 150px;
-    margin-top: 60px;
-    position: absolute;
-    right: 10px;
 }
 
 .profil {
-    width: 100%;
     font-family: 'Arial', sans-serif;
-    position: absolute;
-    left: 50px;
     font-size: 30px;
 }
 
-
+.affichage {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}
 </style>
 
-
 <div class="container-profil">
-<div class="image">
-    <img src="image/2-removebg-preview.png" alt="logo">
+    <div class="bannière">
+        <img src="image/2-removebg-preview.png" alt="logo">
+        <a href="{{ path('app_logout') }}">               
+        <button type="button" class="btn btn-success">Déconnexion</button>
+    </a>
+    </div>
+        <div class="affichage">
+        <p class="profil">Quoi de beau {{ app.user.nom }} ?</p>    
+        <p>Qui est sur la liste ?</p>
+    </div>
 </div>
-
-    <a href="{{path('app_logout')}}">               
-    <button type="button" class="btn btn-success">Déconnexion</button>
-    </a>     
-
-</div>
-<p class="profil">
-         Quoi de beau {{ app.user.nom }} ?
-        </p>
-
-        
-        
-     
