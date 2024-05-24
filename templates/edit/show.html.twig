@@ -4,13 +4,49 @@
 
 {% block body %}
 <style>
-.cadretodo {
-  width: 100%;
+body{
+  background-color: #EEEEEE;
 }
-   
+.cadre-todo {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  
-   
+.note-cadre {
+  margin-bottom: 20px;
+}
+
+.note-text-cadre .note-text {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.ajout, .dropdown-toggle{
+  background-color: #E76F51;
+  border-color: #E76F51;
+  height: 40px;
+  color: white;
+  width: 50%;
+}
+
+.ajout:hover, .dropdown-toggle:hover {
+  background-color: #C95A44;
+  border-color: #C95A44;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-icon, .delete-icon {
+  width: 16px;
+  height: 16px;
+  border: none;
+}
 </style>
 
    
