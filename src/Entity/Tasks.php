@@ -62,7 +62,5 @@ class Tasks
         $this->user = $user;
 
         return $this;
-    }
-
-    
+    }    
 }
